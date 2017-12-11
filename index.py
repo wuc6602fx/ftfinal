@@ -6,10 +6,21 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/know', methods=['POST'])
-def login():
-    a = request.form['a']
-    return render_template('policy.html',a)
+@app.route('/know.html', methods=['POST','GET'])
+def noun():
+    n = ''
+    if request.method == 'POST':
+        n = request.form['noun']
+    else:
+        n = noun
+    info = ''
+#    info = info_list.get(noun)
+    if n == '':
+        n = '主約'
+    if info == '':
+        info = '還沒有解釋'
+    return render_template('know.html',noun=n,info=info)
+
 @app.route('/policy', methods=['POST'])
 @app.route('/compare', methods=['POST'])
 @app.route('/member', methods=['POST'])

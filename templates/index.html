@@ -3,17 +3,27 @@
 <title>index</title>
     <body>
         <h2>請填寫下面的資料</h2>
-        <a href = "know.html" >名詞解釋</a>
+        <a href = "know.html?noun=" >名詞解釋</a>
         <a href = "member.html" >會員中心</a>
         <a href = "compare.html" >保單比較</a>
         <a href = "policy.html" >保單一覽</a>
 
         <form action="policy.html" method="post">
-            年齡：<input type="text" name="a"><br>
-            性別：<input type="text" name="a"><br>
-            職業：<input type="text" name="a"><br>
+            年齡：<input type="text" name="age"><br>
+            性別：<input type="text" name="sex"><br>
+            職業：<select name="job">
+                　<option value="doctor">醫生</option>
+                　<option value="student">學生</option>
+                　<option value="architect">建築師</option>
+                　<option value="teacher">老師</option>
+            </select><br>
             <input type="submit" value="Submit">
         </form>
+
+        <h2>搜尋保單</h2>
+        <form action="policy.html" method="post">
+            <input type="text" name="policy"><br>
+            <input type="submit" value="policy_search">
 
     </body>
 </html>
