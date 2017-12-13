@@ -21,10 +21,19 @@ def noun():
         info = '還沒有解釋'
     return render_template('know.html',noun=n,info=info)
 
-@app.route('/policy', methods=['POST'])
-@app.route('/compare', methods=['POST'])
-@app.route('/member', methods=['POST'])
-def x():
-    return 0
+@app.route('/policy.html', methods=['POST','GET'])
+def policy():
+    if request.method == 'POST':
+        return render_template('policy.html')
+    return render_template('policy.html')
+
+@app.route('/compare.html', methods=['POST','GET'])
+def compare():
+    return render_template('compare.html')
+
+
+@app.route('/member.html', methods=['POST','GET'])
+def member():
+    return render_template('member.html')
 if __name__ == '__main__':
     app.run(debug=True)
