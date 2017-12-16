@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+import json
 
 app = Flask(__name__)
 
@@ -9,16 +10,18 @@ def index():
 @app.route('/know.html', methods=['POST','GET'])
 def noun():
     n = ''
+    info = ''
     if request.method == 'POST':
         n = request.form['noun']
     else:
-        n = noun
-    info = ''
-#    info = info_list.get(noun)
-    if n == '':
-        n = '主約'
-    if info == '':
-        info = '還沒有解釋'
+        with open('know.json', 'r') as f:
+            data = json.load(f)
+            n = request.values['noun']
+            if n == '':
+                n = data['noun'][0]
+            info = data['explain'][data['noun'].index(n)]
+            if info == '':
+                info = data['explain'][0]
     return render_template('know.html',noun=n,info=info)
 
 @app.route('/policy.html', methods=['POST','GET'])
