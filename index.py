@@ -20,9 +20,10 @@ def noun():
             if n == '':
                 n = data['noun'][0]
             info = data['explain'][data['noun'].index(n)]
-            if info == '':
-                info = data['explain'][0]
+        if info == '':
+            info = data['explain'][0]
     return render_template('know.html',noun=n,info=info)
+
 
 @app.route('/policy.html', methods=['POST','GET'])
 def policy():
