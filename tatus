@@ -1,0 +1,92 @@
+[33mcommit 17da9596d87f3cadea9c8b00d149029953d69163[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: c31a0cc 08705f5
+Author: Ranch <ranch941@gmail.com>
+Date:   Fri Dec 29 23:39:03 2017 +0800
+
+    know.json finished
+
+[33mcommit c31a0cc0398ab5c518ed30847b5f1076fb910e47[m
+Author: Ranch <ranch941@gmail.com>
+Date:   Fri Dec 29 23:28:07 2017 +0800
+
+    know.json finished
+
+[33mcommit 08705f5f43dc0334b27bc13feaf6417a780e9c4f[m
+Author: Frixbee <33338671+Frixbee@users.noreply.github.com>
+Date:   Fri Dec 22 19:01:25 2017 +0800
+
+    Update member.html
+
+[33mcommit 4acd4f6cf24f0afb7e86b2f56203fa828bd4d145[m
+Author: wuc6602fx <cat5530xm@gmail.com>
+Date:   Fri Dec 22 18:43:02 2017 +0800
+
+    before 1222
+
+[33mcommit 04700965377c394407fa6cad716ebace631bcf08[m
+Author: wuc6602fx <cat5530xm@gmail.com>
+Date:   Mon Dec 18 20:32:59 2017 +0800
+
+    Create hyperlink of each page
+
+[33mcommit 531fe33a36bc076c02f09f43cebff21def6b1a03[m
+Author: wuc6602fx <cat5530xm@gmail.com>
+Date:   Sat Dec 16 21:25:04 2017 +0800
+
+    名詞解釋存在know.json並實作讀取
+
+[33mcommit 79415b6b138f8ac015ec08744474a57f9c02f79a[m
+Author: wuc6602fx <cat5530xm@gmail.com>
+Date:   Wed Dec 13 11:46:57 2017 +0800
+
+    All html use compare.css, and change the path of css file to meet flask's requirement.
+
+[33mcommit d7bb413343d1cb36e23e9d60e22d3848c92c37c0[m
+Merge: 1c337c4 e463a9f
+Author: Chih-Hsuan, Kuo <appale1234@gmail.com>
+Date:   Mon Dec 11 19:54:32 2017 +0800
+
+    Merge branch 'master' of https://github.com/wuc6602fx/ftfinal
+
+[33mcommit 1c337c46c4ec382b04b2d8402cd2af34fe7e127b[m
+Author: Chih-Hsuan, Kuo <appale1234@gmail.com>
+Date:   Mon Dec 11 19:53:53 2017 +0800
+
+    move compare
+
+[33mcommit e463a9fc3dc68f5c55fe9cfb1f496760255965fc[m
+Author: Frixbee <33338671+Frixbee@users.noreply.github.com>
+Date:   Mon Dec 11 19:51:37 2017 +0800
+
+    Update policy.html
+
+[33mcommit c9bd173646c584a327b23187b0127ba8563bbe52[m
+Merge: 38d23f7 617f73f
+Author: Chih-Hsuan, Kuo <appale1234@gmail.com>
+Date:   Mon Dec 11 19:42:01 2017 +0800
+
+    Merge branch 'master' of https://github.com/wuc6602fx/ftfinal
+
+[33mcommit 38d23f719fd6f9540b06146c98dc54b5a51f9c8b[m
+Author: Chih-Hsuan, Kuo <appale1234@gmail.com>
+Date:   Mon Dec 11 19:41:08 2017 +0800
+
+    [ADD] compare.html compare.css
+
+[33mcommit 617f73f384ba3207e73d3f49d068f2ef47a1766f[m
+Author: wuc6602fx <cat5530xm@gmail.com>
+Date:   Mon Dec 11 19:34:23 2017 +0800
+
+    [ADD] index,know.html
+
+[33mcommit 6b7eae10995361dd3dba53fed2e4e7ff4367ad5d[m
+Author: wuc6602fx <cat5530xm@gmail.com>
+Date:   Mon Dec 11 15:24:21 2017 +0800
+
+    [ADD]first code
+
+[33mcommit 7fc9a4febc0adc95e2c6cdae77a93cf2139b013b[m
+Author: wuc6602fx <cat5530xm@gmail.com>
+Date:   Thu Nov 23 14:08:32 2017 +0800
+
+    [ADD]mid report

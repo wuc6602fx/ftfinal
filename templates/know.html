@@ -1,12 +1,23 @@
 <html>
     <meta charset="utf-8">
-    <title> {{ noun }} </title>    
+    <title>名詞解釋</title>    
     <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='compare.css') }}">
         <body>
             <a href = "/" >首頁</a>
             <a href = "member.html" >會員中心</a>
             <a href = "compare.html" >保單比較</a>
             <a href = "policy.html" >保單一覽</a> 
-            <br>{{ info }}
+            
+       
+            {% autoescape false %}
+            {% for i in range(0,(noun|length)) %}
+            <div>
+            {{ noun[i] | replace("\n\r","<br/>") }}
+            <br>
+            {{ explain[i] | replace("\n\r","<br/>") }}
+            <br><br><br>
+    		</div>
+            {% endfor %}
+            {% endautoescape %}
         </body>
 </html>
