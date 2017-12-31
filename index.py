@@ -5,9 +5,9 @@ app = Flask(__name__)
 
 #To read json file as object
 class JSONObject:
-  def __init__( self, dict ):
+    def __init__( self, dict ):
       vars(self).update( dict )
-
+      
 
 @app.route('/')
 def index():
@@ -15,7 +15,8 @@ def index():
 
 @app.route('/know.html', methods=['GET','POST'])
 def noun():
-    noun = explain = ''
+    noun = ''
+    explain = ''
     # form request use POST method
     # Hyper link uses GET method.
     if request.method == 'GET':
@@ -36,15 +37,30 @@ def noun():
 
 @app.route('/policy.html', methods=['POST','GET'])
 def policy():
-    if request.method == 'GET':
-        with open('policy.json', 'r') as f:
-            data = json.load(f,object_hook= JSONObject)
-            name = data.name
-        return render_template('policy.html',policy=data,name=name)
+    with open('policy.json', 'r') as f:
+        data = json.load(f,object_hook= JSONObject)
+    if request.method == 'POST':     
+        search = request.form['policy']
+        result = []
+        name = []
+        major = []
+        t = []
+        year = []
+        link = []
+        for policy in data.name:
+            if policy.find(search) != -1:
+                result.append(policy)
+        for r in result:
+            for i in range(0,len(data.name)):
+                if r == data.name[i]:
+                    name.append(data.name[i])
+                    major.append(data.major[i])
+                    t.append(data.type[i])
+                    year.append(data.year[i])
+                    link.append(data.link[i])
+        return render_template('policy.html',name=name,major=major,type=t,year=year,link=link)
     else:
-
-        return render_template('policy.html')
-
+        return render_template('policy.html',name=data.name,major=data.major,type=data.type,year=data.year,link=data.link)
 @app.route('/compare.html', methods=['POST','GET'])
 def compare():
     if request.method == 'GET':

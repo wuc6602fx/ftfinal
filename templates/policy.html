@@ -38,10 +38,10 @@
          
             {% for i in range(0,(name|length)) %}
             <tr>
-               <td><a href = '{{ policy.link[i] }}'>{{ name[i] }}</a></td>
-               <td>{{ policy.major[i] }}</td>
-               <td>{{ policy.type[i] }}</td>
-               <td>{{ policy.year[i] }}</td>
+               <td><a href = '{{ link[i] }}'>{{ name[i] }}</a></td>
+               <td>{{ major[i] }}</td>
+               <td>{{ type[i] }}</td>
+               <td>{{ year[i] }}</td>
 			   <td> + </td>
             </tr>
             {% endfor %}
