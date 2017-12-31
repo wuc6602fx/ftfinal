@@ -17,9 +17,6 @@
             <!-- rowspans and colspans merge the specified -->
             <!-- number of cells vertically or horizontally -->
             <tr>
-               <th>
-                  <strong>保險公司</strong>
-               </th>
 			   <th>
                   <strong>保險名稱</strong>
                </th>
@@ -27,123 +24,28 @@
                   <strong>主附約</strong>
                </th>
 			   <th>
-                  <strong>年繳額</strong>
+                  <strong>險種</strong>
                </th>
 			   <th>
-                  <strong>身故保險金</strong>
+                  <strong>年期</strong>
                </th>
 			   <th>
-                  <strong>祝壽保險金</strong>
-               </th>
-			   <th>
-                  <strong>非全殘理賠</strong>
-               </th>
-			   <th>
-                  <strong>選擇</strong>
+                  <strong>加入比較</strong>
                </th>
             </tr>
          </thead>
          <tbody align = "center">
+         
+            {% for i in range(0,(name|length)) %}
             <tr>
-               <td>安聯人壽</td>
-               <td>定期壽險附約(20期)</td>
-               <td>附約</td>
-               <td>219</br>元</td>
-			   <td>100,000</br>元</td>
-			   <td>無</td>
-			   <td>無</td>
-			   <td>+</td>
+               <td><a href = '{{ policy.link[i] }}'>{{ name[i] }}</a></td>
+               <td>{{ policy.major[i] }}</td>
+               <td>{{ policy.type[i] }}</td>
+               <td>{{ policy.year[i] }}</td>
+			   <td> + </td>
             </tr>
-            <tr>
-               <td>三商美邦人壽</td>
-               <td>祥順定期壽險附約(5期)</td>
-               <td>附約</td>
-               <td>240</br>元</td>
-			   <td>--</td>
-			   <td>無</td>
-			   <td>無</td>
-			   <td>+</td>
-            </tr>
-			<tr>
-               <td>南山人壽</td>
-               <td>不分紅一年期定期壽險附約(1期)</td>
-               <td>附約</td>
-               <td>254</br>元</td>
-			   <td>200,000</br>元</td>
-			   <td>無</td>
-			   <td>無</td>
-			   <td>+</td>
-            </tr>
-			<tr>
-               <td>三商美邦人壽</td>
-               <td>祥順定期壽險附約(10期)</td>
-               <td>附約</td>
-               <td>280</br>元</td>
-			   <td>--</td>
-			   <td>無</td>
-			   <td>無</td>
-			   <td>+</td>
-            </tr>
-			<tr>
-               <td>三商美邦人壽</td>
-               <td>祥順定期壽險附約(15期)</td>
-               <td>附約</td>
-               <td>340</br>元</td>
-			   <td>--</td>
-			   <td>無</td>
-			   <td>無</td>
-			   <td>+</td>
-            </tr>
-			<tr>
-               <td>三商美邦人壽</td>
-               <td>祥順定期壽險附約(5期)</td>
-               <td>附約</td>
-               <td>360</br>元</td>
-			   <td>--</td>
-			   <td>無</td>
-			   <td>無</td>
-			   <td>+</td>
-            </tr>
-			<tr>
-               <td>新光人壽</td>
-               <td>幸福人生終身壽險(10期)</td>
-               <td>主約</td>
-               <td>372</br>元</td>
-			   <td>10,000</br>元</td>
-			   <td>無</td>
-			   <td>無</td>
-			   <td>+</td>
-            </tr>
-			<tr>
-               <td>南山人壽</td>
-               <td>不分紅一年期定期壽險附約(1期)</td>
-               <td>附約</td>
-               <td>381</br>元</td>
-			   <td>300,000</br>元</td>
-			   <td>無</td>
-			   <td>無</td>
-			   <td>+</td>
-            </tr>
-			<tr>
-               <td>三商美邦人壽</td>
-               <td>祥順定期壽險附約(20期)</td>
-               <td>附約</td>
-               <td>400</br>元</td>
-			   <td>--</td>
-			   <td>無</td>
-			   <td>無</td>
-			   <td>+</td>
-            </tr>
-			<tr>
-               <td>三商美邦人壽</td>
-               <td>祥順定期壽險附約(10期)</td>
-               <td>附約</td>
-               <td>420</br>元</td>
-			   <td>--</td>
-			   <td>無</td>
-			   <td>無</td>
-			   <td>+</td>
-            </tr>
+            {% endfor %}
+            
          </tbody>
 		 <tfoot>
 

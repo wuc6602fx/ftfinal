@@ -39,7 +39,8 @@ def policy():
     if request.method == 'GET':
         with open('policy.json', 'r') as f:
             data = json.load(f,object_hook= JSONObject)
-        return render_template('policy.html',policy=data)
+            name = data.name
+        return render_template('policy.html',policy=data,name=name)
     else:
 
         return render_template('policy.html')
