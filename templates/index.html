@@ -4,16 +4,27 @@
     <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='compare.css') }}">
     <title>index</title>
     <body>
-        <h2>請填寫下面的資料</h2>
+        <h2>請填寫受保人的資料</h2>
         <a href = "know.html?noun=" >名詞解釋</a>
         <a href = "member.html" >會員中心</a>
         <a href = "compare.html" >保單比較</a>
         <a href = "policy.html" >保單一覽</a>
 
-        <form action="policy.html" method="post">
-            年齡：<input type="text" name="age"><br>
-            性別：<input type="text" name="sex"><br>
-            職業：<select name="job">
+        <form action="profile/policy.html" method="post">
+            年齡：
+            <select name="age">
+            	{% for age in range(1, 100) %}
+    			<option value="{{ age }}">{{ age }}</option>
+				{% endfor %}
+			</select>
+			<br>
+            性別：
+            <select name="sex">
+                　<option value="0">男</option>
+                　<option value="1">女</option>
+            </select><br>
+            職業：
+            <select name="job">
                 　<option value="1">第一級職業（家庭主婦、辦公人員）</option>
                 　<option value="2">第二級職業（業務人員、司機）</option>
                 　<option value="3">第三級職業（保全、工人、軍警消外勤人員）</option>

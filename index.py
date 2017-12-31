@@ -35,6 +35,51 @@ def noun():
     else:
         return render_template('index.html')
 
+@app.route('/profile/policy.html', methods=['POST'])
+def profile():
+    with open('policy.json', 'r') as f:
+        data = json.load(f,object_hook= JSONObject)
+    if request.method == 'POST':
+        sex = int(request.form['sex']) # male = 0,female = 1     
+        age = int(request.form['age'])
+        job = int(request.form['job']) # 1~3
+        print('job = ',job,' sex = ',sex,' age = ',age)
+        result = []
+        name = []
+        major = []
+        t = []
+        year = []
+        link = []
+        for i in range(0,len(data.type)):
+            if job >= 1:
+                #終身壽險+年金
+                if data.type[i] == '壽險' or data.type[i] == '年金':
+                    name.append(data.name[i])
+                    major.append(data.major[i])
+                    t.append(data.type[i])
+                    year.append(data.year[i])
+                    link.append(data.link[i])
+                if job >= 2:
+                    #累加）健康險
+                    if data.type[i] == '健康保險':
+                        name.append(data.name[i])
+                        major.append(data.major[i])
+                        t.append(data.type[i])
+                        year.append(data.year[i])
+                        link.append(data.link[i])
+                    if job >= 3:
+                        #累加）傷害險
+                        if data.type[i] == '傷害險':
+                            name.append(data.name[i])
+                            major.append(data.major[i])
+                            t.append(data.type[i])
+                            year.append(data.year[i])
+                            link.append(data.link[i])
+            else:
+                print('job value error')
+                job = 1
+        return render_template('policy.html',name=name,major=major,type=t,year=year,link=link,sex=sex,age=age)
+    
 @app.route('/policy.html', methods=['POST','GET'])
 def policy():
     with open('policy.json', 'r') as f:
@@ -59,8 +104,8 @@ def policy():
                     year.append(data.year[i])
                     link.append(data.link[i])
         return render_template('policy.html',name=name,major=major,type=t,year=year,link=link)
-    else:
-        return render_template('policy.html',name=data.name,major=data.major,type=data.type,year=data.year,link=data.link)
+    return render_template('policy.html',name=data.name,major=data.major,type=data.type,year=data.year,link=data.link)
+
 @app.route('/compare.html', methods=['POST','GET'])
 def compare():
     if request.method == 'GET':
