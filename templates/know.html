@@ -1,23 +1,45 @@
 <html>
-    <meta charset="utf-8">
-    <title>名詞解釋</title>    
-    <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='compare.css') }}">
-        <body>
-            <a href = "/" >首頁</a>
-            <a href = "member.html" >會員中心</a>
-            <a href = "compare.html" >保單比較</a>
-            <a href = "policy.html" >保單一覽</a> 
-            
-       
-            {% autoescape false %}
-            {% for i in range(0,(noun|length)) %}
-            <div>
-            {{ noun[i] | replace("\n\r","<br/>") }}
-            <br>
-            {{ explain[i] | replace("\n\r","<br/>") }}
-            <br><br><br>
-    		</div>
-            {% endfor %}
-            {% endautoescape %}
+    <head>
+		<title>名詞解釋</title>
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{{ url_for('static',filename='assets/css/main.css') }}" />
+    </head>
+    <body class="subpage">
+        <!-- Header -->
+		<header id="header">
+			<div class="inner">
+				<a href="/" class="logo"><strong>Project</strong> by TEAM8</a>
+				<nav id="nav">
+					<a href = "/" >首頁</a>
+            		<a href = "member.html" >會員中心</a>
+            		<a href = "compare.html" >保單比較</a>
+            		<a href = "policy.html" >保單一覽</a> 
+				</nav>
+				<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+			</div>
+		</header>    
+<!-- Main -->
+		<section id="main" class="wrapper">
+			<div class="inner">
+				<header class="align-center">
+					{% autoescape false %}
+            		{% for i in range(0,(noun|length)) %}
+            		<div>
+            			<h2>{{ noun[i] | replace("\n\r","<br/>") }}</h2>
+            			<br>
+            			<p>{{ explain[i] | replace("\n\r","<br/>") }}</p>
+            			<br><br><br>
+    				</div>
+            		{% endfor %}
+            		{% endautoescape %}
+				</header>   
+<!-- Footer -->
+		
+		<h3>影片教學</h3>
+		<iframe width="420" height="345" src="https://www.youtube.com/embed/10tjjq8GAjs">
+		</iframe>
+		<iframe width="420" height="345" src="https://www.youtube.com/embed/MntX3zWNWec">
+		</iframe>
         </body>
 </html>
