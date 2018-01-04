@@ -34,7 +34,7 @@
 						</div>
 						<div>
 							<span class="icon fa-compass"></span>
-							<h3><a href="#top_1">保單規劃</a></h3>
+							<h3><a href="#top_1" id="goDown">保單規劃</a></h3>
 							<p>針對您做適合您建議</p>
 						</div>
 						<div>
@@ -91,7 +91,15 @@
 							<li><input value="送出" class="button alt" type="submit"></li>
 						</ul>
 					</form>
-
-    </body
+	<script type=text/javascript src="{{
+  url_for('static', filename='jquery.js') }}"></script>
+  	<script type=text/javascript>
+  	 $('a.goDown').click(function(event) {
+  		 alert("hey");
+  		$("html,body").animate({scrollTop: 0}, 1000);
+  		return false;
+  	 });
+  	</script>
+    </body>
     
 </html>

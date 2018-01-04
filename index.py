@@ -115,29 +115,36 @@ def compare():
 
 @app.route('/member.html', methods=['POST','GET'])
 def member():
-    names = types = ''
-    nowList = pastList = adviceList = []
+    names = ''
+    types = ''
+    nowList = []
+    pastList = []
+    aName = []
+    aType = []
+    aMajor = []
+    aLink = []
+    aYear = []
+    combination = [0]*5
     #點超連結進入會員中心
     if request.method == 'GET':
-        print('member.GET')
         #    member_now.json store the name and type of policies,
         #    then we use type to find advise, name to search more info.
         with open('member_now.json', 'r') as f:
             data = json.load(f,object_hook= JSONObject)
             names = data.name #名稱
             types = data.type #險種
-
+            nowList = data
         #依照保險組合推薦險種
         #保險組合：壽險+年金險+長照+健康險+傷害險
-        combination[5] = [0,0,0,0,0]
+        
         for type in types:
             if type == '壽險':
                combination[0] = combination[0] + 1
-            elif type == '年金險':
+            elif type == '年金':
                combination[1] = combination[1] + 1
-            elif type == '長照':
+            elif type == '長期照顧保險':
                combination[2] = combination[2] + 1
-            elif type == '健康險':
+            elif type == '健康保險':
                combination[3] = combination[3] + 1
             elif type == '傷害險':
                combination[4] = combination[4] + 1
@@ -147,36 +154,43 @@ def member():
         #Open policy.json to get recommend policy
         with open('policy.json', 'r') as f:
             data = json.load(f,object_hook= JSONObject)
+            def appendData():
+                aName.append(data.name[data.type.index(type)])
+                aType.append(data.type[data.type.index(type)])
+                aMajor.append(data.major[data.type.index(type)])
+                aLink.append(data.link[data.type.index(type)])
+                aYear.append(data.year[data.type.index(type)])
             if combination[0] == 0:
                 for type in data.type:
                     if type == '壽險':
-                        adviceList.append(data) # policy info at index of type's
+                        appendData()
                         break
             if combination[1] == 0:
                 for type in data.type:
-                    if type == '年金險':
-                        adviceList.append(data) # policy info at index of type's
+                    if type == '年金':
+                        appendData()
                         break #  Only advice first qualified policy
             if combination[2] == 0:
                 for type in data.type:
-                    if type == '長照':
-                        adviceList.append(data) # policy info at index of type's
+                    if type == '長期照顧保險':
+                        appendData()
                         break
             if combination[3] == 0:
                 for type in data.type:
-                    if type == '健康險':
-                        adviceList.append(data) # policy info at index of type's
+                    if type == '健康保險':
+                        appendData()
                         break
             if combination[4] == 0:
                 for type in data.type:
                     if type == '傷害險':
-                        adviceList.append(data) # policy info at index of type's
+                        appendData()
                         break
 
         with open('member_last.json', 'r') as f:
             data = json.load(f,object_hook= JSONObject)
             pastList = data # all policy info of member_past.json
-    return render_template('member.html',nowList=nowList,pastList=pastList,adviceList=adviceList)
+    print(aName,aLink)
+    return render_template('member.html',nowList=nowList,pastList=pastList,aName=aName,aType=aType,aMajor=aMajor,aLink=aLink,aYear=aYear)
 
 if __name__ == '__main__':
     app.run(debug=True)
