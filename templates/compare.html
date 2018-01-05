@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>保單比較</title>
     <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='compare.css') }}">
-  </head> 
+  </head>
 
   <body>
             <a href = "/" >首頁</a>
@@ -19,19 +19,16 @@
 	<div id="tableRow">
 
 	<section id="policyA">
-		<h1>保單A</h1>
-			<p>++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
-			<p>--</p>
-			<p>++</p>
-			<p>--</p>
+    {% autoescape false %}
+		<h1>{{ title[0] }}</h1>
+			<p>{{ contain[0] | replace("\n\r","<br/>") }}</p>
 	</section>
 
 	<section id="policyB">
-		<h1>保單B</h1>
-			<p>++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
-			<p>--</p>
-			<p>++</p>
-			<p>--</p>
+		<h1>{{ title[1] }}</h1>
+			<p>{{ contain[1] | replace("\n\r","<br/>") }}</p>
+
+      {% endautoescape %}
 	</section>
 	</div> <!-- tableRow -->
 	</div> <!-- tableContainer -->
@@ -59,11 +56,9 @@
     <footer>
       &copy; 2017, Team8
       <br>
-      All trademarks and registered trademarks appearing on 
+      All trademarks and registered trademarks appearing on
       this site are the property of their respective owners.
     </footer>
 
   </body>
 </html>
-
-
