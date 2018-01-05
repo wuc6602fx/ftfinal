@@ -21,12 +21,12 @@
 	<section id="policyA">
     {% autoescape false %}
 		<h1>{{ title[0] }}</h1>
-			<p>{{ contain[0] | replace("\n\r","<br/>") }}</p>
+			<p>{{ content[0] | replace("\n\r","<br/>") }}</p>
 	</section>
 
 	<section id="policyB">
 		<h1>{{ title[1] }}</h1>
-			<p>{{ contain[1] | replace("\n\r","<br/>") }}</p>
+			<p>{{ content[1] | replace("\n\r","<br/>") }}</p>
 
       {% endautoescape %}
 	</section>
