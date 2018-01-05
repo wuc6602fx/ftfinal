@@ -108,10 +108,16 @@ def policy():
 
 @app.route('/compare.html', methods=['POST','GET'])
 def compare():
+    title = []
+    content = []
     if request.method == 'GET':
         return render_template('compare.html')
     if request.method == 'POST':
-        return render_template('compare.html')
+        sex = int(request.form['sex']) # male = 0,female = 1     
+        age = int(request.form['age'])
+        with open('policy.json', 'r') as f:
+            data = json.load(f,object_hook= JSONObject)    
+            return render_template('compare.html',title = data.title,content = data.content,age=age,sex=sex)
 
 @app.route('/member.html', methods=['POST','GET'])
 def member():
