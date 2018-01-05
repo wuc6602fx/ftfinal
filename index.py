@@ -113,11 +113,23 @@ def compare():
     if request.method == 'GET':
         return render_template('compare.html')
     if request.method == 'POST':
-        sex = int(request.form['sex']) # male = 0,female = 1     
-        age = int(request.form['age'])
-        with open('policy.json', 'r') as f:
-            data = json.load(f,object_hook= JSONObject)    
-            return render_template('compare.html',title = data.title,content = data.content,age=age,sex=sex)
+        #sex = int(request.form['sex']) # male = 0,female = 1     
+        #age = int(request.form['age'])
+        key = request.form['key']
+        with open('compare.json', 'r') as f:
+            data = json.load(f,object_hook= JSONObject)
+            if key.find('年金') != -1:
+                title.append(data.title[0])
+                title.append(data.title[1])
+                content.append(data.content[0])
+                content.append(data.content[1])
+            else:
+                title.append(data.title[2])
+                title.append(data.title[3])
+                content.append(data.content[2])
+                content.append(data.content[3])
+        #return render_template('compare.html',title=title,content=content,age=age,sex=sex)
+        return render_template('compare.html',title=title,content=content)
 
 @app.route('/member.html', methods=['POST','GET'])
 def member():
