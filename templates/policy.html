@@ -15,7 +15,6 @@
 					<a href = "/">首頁</a>
         			<a href = "/know.html?noun=" >名詞解釋</a>
         			<a href = "/member.html" >會員中心</a>
-        			<a href = "/compare.html" >保單比較</a>
 				</nav>
 				<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 			</div>
@@ -24,6 +23,7 @@
 		<section id="main" class="wrapper">
 			<div class="inner">
 				<h2 id="elements">我們建議您</h2>
+				
 					<section id="main" class="wrapper">
       					<div class="table-wrapper">  
 							<table class="alt">	
@@ -45,26 +45,106 @@
                						<td>{{ year[i] }}</td>
 			   						<td>
 			   							<div class="6u$ 12u$(small)">
-			   								<input type= "checkbox" name= "compare" value = "{{ i }}">
-			   								<img src="{{ url_for('static',filename='images/add.png') }}" title="點我加入比較" height="30" width="30">
+			   								<img onclick="addPolicy('{{ name[i] }}')"
+			   								src="{{ url_for('static',filename='images/add.png') }}" height="30" width="30">
 			   							</div>
 			   						</td>
             					</tr>
             					{% endfor %}
          						</tbody>
       						</table>
-      <!-- sex,age -->
-      <form action= "/compare.html" method="post">
-      	<input type= "hidden" name= "sex" value = "{{ sex }}" >
-        <input type= "hidden" name= "age" value = "{{ age }}" >
-        <input type= "hidden" name= "key" value = "年金保險" >
-        <input type= "submit" value = "進行保單比較" >     	
-      </form>
+      						
+      						
+      			<div id="iRFloating" style="position:absolute;top:100;left:1000;">
+      			
+  					<table>
+  						<thead>
+  							<p1><strong>比較清單</strong></p1>
+  						</thead>
+    					<tbody>
+    						<tr>
+    						<p id="demo"></p>
+    						</tr>
+    						<tr>
+    	  						<td valign="top">
+        							 <!-- sex,age -->
+      								<form name="compare" action= "/compare.html" method="post">
+      									<input type= "hidden" name= "sex" value = "{{ sex }}" >
+        								<input type= "hidden" name= "age" value = "{{ age }}" >
+        								<input type= "hidden" name= "key" value = "年金保險" >
+        								<input type= "submit" value = "進行保單比較" >     	
+      								</form>
+      							</td>
+	    					</tr>
+	    				</tbody>
+  					</table>
+				</div>
+
+
+     
  
      <script type=text/javascript src="{{
   url_for('static', filename='jquery.js') }}"></script>
   	<script type=text/javascript>
   		
   	</script>
+  	<script>
+  	var index = 0;
+	function addPolicy(name)
+	{
+		index = index + 1;
+    	document.getElementById("demo").innerHTML = '目前 '+index+' 筆保險';
+    	document.forms["compare"].elements.key.value = name;
+    	alert(name + "已添加到比較清單！");
+	}
+
+  adWidth = 160;//廣告寬度
+
+  nowX = 1000;//目前位置(left)
+  nowY = 100;//目前位置(top)
+
+  fad_style = document.getElementById('iRFloating').style;
+
+  function fadIni()
+  {
+      innerWidth = document.body.clientWidth;
+      innerHeight = document.body.clientHeight;
+  
+      edge = (innerWidth-555)/2;
+  
+      if( edge > adWidth )
+      {
+          posX = edge + 1000;
+      }
+      else
+      {
+          posX = innerWidth-adWidth;
+      }
+  
+      posY = 100;
+  
+  }
+  function fadRefresh()
+  {
+      offsetX = posX + document.body.scrollLeft - nowX;
+      offsetY = posY + document.body.scrollTop - nowY;
+      nowX += offsetX / 5;
+      nowY += offsetY / 5;
+      fad_style.left = nowX;
+      fad_style.top = nowY;
+  
+      floatID = setTimeout('fadRefresh()', 20 );//Refresh時間
+  }
+  
+  function fadStart()
+  {
+      fadIni();
+      window.onresize=fadIni;
+      fadRefresh();
+  }
+  
+  fadStart();
+
+</script>
    </body>
 </html>

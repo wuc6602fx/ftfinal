@@ -111,7 +111,13 @@ def compare():
     title = []
     content = []
     if request.method == 'GET':
-        return render_template('compare.html')
+        with open('compare.json', 'r') as f:
+            data = json.load(f,object_hook= JSONObject)
+            title.append(data.title[0])
+            title.append(data.title[1])
+            content.append(data.content[0])
+            content.append(data.content[1])
+        return render_template('compare.html',title=title,content=content)
     if request.method == 'POST':
         #sex = int(request.form['sex']) # male = 0,female = 1     
         #age = int(request.form['age'])
