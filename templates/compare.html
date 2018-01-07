@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 		<title>保單比較</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href= "../static/assets/css/compare.css">
+    <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='assets/css/compare.css') }}">
   </head>
 
   <body class="subpage">
@@ -29,24 +29,22 @@
 						</header>	
 					</div>
 			</section>
+	<section id="main" class="wrapper">
+	<div class="inner">
+	<table class="alt">
+			<tbody align = "center">
+				{% autoescape false %}	
+			<tr>
+				<td>{{ title[0] }}</td>
+				<td>{{ title[1] }}</td>
+			</tr>
+			<tr>	
+				<td>{{ content[0] | replace("\n\r","<br/>") }}</td>
+				<td>{{ content[1] | replace("\n\r","<br/>") }}</td>
+			</tr>
+			{% endautoescape %}
 
-	<div id="tableContainer">
-	<div id="tableRow">
-
-	<section id="policyA">
-    	{% autoescape false %}	
-		<h1>{{ title[0] }}</h1>
-			<p>{{ content[0] | replace("\n\r","<br/>") }}</p>
-	</section>
-
-	<section id="policyB">
-		<h1>{{ title[1] }}</h1>
-			<p>{{ content[1] | replace("\n\r","<br/>") }}</p>
-
-      {% endautoescape %}
-	</section>
-	</div> <!-- tableRow -->
-	</div> <!-- tableContainer -->
+	</table>
 
 	<section id="three" class="wrapper">
 				<header class="align-center">
