@@ -59,7 +59,7 @@
 /* add by */
 	div#tableContainer {
 		display: table;
-		border-spacing: 10px;
+		border-spacing: 50px;
 		margin-left:auto; 
 		margin-right:auto;
 	}
@@ -74,15 +74,19 @@
 		display: table-cell;
 		font-size:        150%;
 	    width: 	50%;
-	    padding: 1px;
+	    padding: 50px;
 		vertical-align: top;
+		background-color: #e5ffed;
+		border: 2px dotted gray;
 	}
 	section#policyB {
   		display: table-cell;
   		width: 50%;
   		font-size:        150%;
-  		padding:          1px;
+  		padding:          50px;
 		vertical-align: top;
+		background-color: #e5ffed;
+		border: 2px dotted gray;
 	}
 	input[type=checkbox] {
 		position: relative;
