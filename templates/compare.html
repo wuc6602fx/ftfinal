@@ -2,24 +2,39 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>保單比較</title>
-    <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='compare.css') }}">
+		<title>保單比較</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href= "../static/assets/css/compare.css">
   </head>
 
-  <body>
-            <a href = "/" >首頁</a>
-            <a href = "know.html?noun=" >名詞解釋</a>
-            <a href = "member.html" >會員中心</a>
-            <a href = "policy.html" >保單一覽</a>
-    <header class="top">
-      <h1>保單比較</h1>
-    </header>
+  <body class="subpage">
+			<!-- Header -->
+			<header id="header">
+					<div class="inner">
+						<a href="index.html" class="logo"><strong>Project</strong> by TEAM8</a>
+						<nav id="nav">
+								<a href = "/" >首頁</a>
+								<a href = "know.html?noun=" >名詞解釋</a>
+								<a href = "member.html" >會員中心</a>
+								<a href = "policy.html" >保單一覽</a>
+						</nav>
+						<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+					</div>
+			</header>
+		
+		  <section id="three" class="wrapper">
+					<div class="inner">
+						<header class="align-center">
+							<h2>保單比較</h2>
+						</header>	
+					</div>
+			</section>
 
 	<div id="tableContainer">
 	<div id="tableRow">
 
 	<section id="policyA">
-    {% autoescape false %}
+    	{% autoescape false %}	
 		<h1>{{ title[0] }}</h1>
 			<p>{{ content[0] | replace("\n\r","<br/>") }}</p>
 	</section>
@@ -33,27 +48,33 @@
 	</div> <!-- tableRow -->
 	</div> <!-- tableContainer -->
 
-	<form>
-		<input type=checkbox value="對應值一" name="選項名稱一"> 保單A
-		<br>
-		<input type=checkbox value="對應值二" name="選項名稱二"> 保單B
-		<br>
-		<input type=checkbox value="對應值三" name="選項名稱三"> 保單C
-		<br>
-		<input type=checkbox value="對應值三" name="選項名稱三"> 保單D
-		<br>
-		<input type=checkbox value="對應值三" name="選項名稱三"> 保單E
-		<br>
-		<input type=checkbox value="對應值三" name="選項名稱三"> 保單F
-	</form>
+	<section id="three" class="wrapper">
+				<header class="align-center">
+				<form>
+			
+					<input type=checkbox value="對應值一" name="選項名稱一"> 保單A
+					<br>
+					<input type=checkbox value="對應值二" name="選項名稱二"> 保單B
+					<br>
+					<input type=checkbox value="對應值三" name="選項名稱三"> 保單C
+					<br>
+					<input type=checkbox value="對應值三" name="選項名稱三"> 保單D
+					<br>
+					<input type=checkbox value="對應值三" name="選項名稱三"> 保單E
+					<br>
 
-	<!-- submit to server -->
-	<form>
-		<input type=submit>
-	</form>
+				</form>
+
+			<!-- submit to server -->
+			<form>
+				<input type=submit>
+			</form>
+
+		</div>
+	</section>>
 
 
-    <footer>
+    <footer id="footer">
       &copy; 2017, Team8
       <br>
       All trademarks and registered trademarks appearing on
