@@ -1,6 +1,6 @@
 <html>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='assets/css/compare.css') }}">
+    <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='assets/css/main.css') }}">
     <title>member</title>
     <body class="subpage">
             <header id="header">
@@ -20,43 +20,28 @@
         <div>張小姐 您好</div>
         個人保單資訊:
         <div>您已經有的保單如下
-            <table border = "1" width = 50% align = "center">
+             <table border = "1" width = 50% align = "center">
                 <caption></caption>
 
                 <thead>
                     <!-- rowspans and colspans merge the specified -->
                     <!-- number of cells vertically or horizontally -->
                     <tr>
-                        <th>
-                            <strong>保險公司</strong>
-                        </th>
-			            <th>
-                            <strong>保險名稱</strong>
-                        </th>
-			            <th>
-                            <strong>主附約</strong>
-                        </th>
-			            <th>
-                            <strong>年繳額</strong>
-                        </th>
-			            <th>
-                            <strong>身故保險金</strong>
-                        </th>
-			            <th>
-                            <strong>祝壽保險金</strong>
-                        </th>
-			            <th>
-                            <strong>非全殘理賠</strong>
-                        </th>
-			            <th>
-                            <strong>選擇</strong>
-                        </th>
+			   			<th>保險名稱</th>
+			   			<th><a href= /know.html?noun=主約與附約>主附約</a></th>
+			   			<th><a href= /know.html?noun=傷害險與健康險>險種</a></th>
+			   			<th><a href = /know.html?noun=定期壽險與終身壽險>年期</a></th>
                     </tr>
                 </thead>
                 <tbody align = "center">
-                    <tr>
-                        <td></td>
-                    </tr>
+				{% for i in range(0,(nowList.name|length)) %}
+					<tr>
+               			<td><a href = '{{ nowList.link[i] }}'>{{ nowList.name[i] }}</a></td>
+               			<td>{{ nowList.major[i] }}</td>
+               			<td>{{ nowList.type[i] }}</td>
+               			<td>{{ nowList.year[i] }}</td>
+            		</tr>
+            	{% endfor %}
                 </tbody>
 		        <tfoot>
 		        </tfoot>
@@ -67,40 +52,25 @@
             <table border = "1" width = 50% align = "center">
                 <caption></caption>
 
-                <thead>
+                  <thead>
                     <!-- rowspans and colspans merge the specified -->
                     <!-- number of cells vertically or horizontally -->
                     <tr>
-                        <th>
-                            <strong>保險公司</strong>
-                        </th>
-			            <th>
-                            <strong>保險名稱</strong>
-                        </th>
-			            <th>
-                            <strong>主附約</strong>
-                        </th>
-			            <th>
-                            <strong>年繳額</strong>
-                        </th>
-			            <th>
-                            <strong>身故保險金</strong>
-                        </th>
-			            <th>
-                            <strong>祝壽保險金</strong>
-                        </th>
-			            <th>
-                            <strong>非全殘理賠</strong>
-                        </th>
-			            <th>
-                            <strong>選擇</strong>
-                        </th>
+                        <th>保險名稱</th>
+			   			<th><a href= /know.html?noun=主約與附約>主附約</a></th>
+			   			<th><a href= /know.html?noun=傷害險與健康險>險種</a></th>
+			   			<th><a href = /know.html?noun=定期壽險與終身壽險>年期</a></th>
                     </tr>
                 </thead>
-                <tbody align = "center">
-                    <tr>
-                        <td></td>
-                    </tr>
+                   <tbody align = "center">
+				{% for i in range(0,(pastList.name|length)) %}
+					<tr>
+               			<td><a href = '{{ pastList.link[i] }}'>{{ pastList.name[i] }}</a></td>
+               			<td>{{ pastList.major[i] }}</td>
+               			<td>{{ pastList.type[i] }}</td>
+               			<td>{{ pastList.year[i] }}</td>
+            		</tr>
+            	{% endfor %}
                 </tbody>
 		        <tfoot>
 		        </tfoot>
@@ -112,37 +82,26 @@
             <table border = "1" width = 50% align = "center">
                 <caption></caption>
 
-                <thead>
+               <thead>
                     <!-- rowspans and colspans merge the specified -->
                     <!-- number of cells vertically or horizontally -->
                     <tr>
-                        <th>
-                            <strong>保險公司</strong>
-                        </th>
-			            <th>
-                            <strong>保險名稱</strong>
-                        </th>
-			            <th>
-                            <strong>主附約</strong>
-                        </th>
-			            <th>
-                            <strong>年繳額</strong>
-                        </th>
-			            <th>
-                            <strong>身故保險金</strong>
-                        </th>
-			            <th>
-                            <strong>祝壽保險金</strong>
-                        </th>
-			            <th>
-                            <strong>非全殘理賠</strong>
-                        </th>
-			            <th>
-                            <strong>選擇</strong>
-                        </th>
+                        <th>保險名稱</th>
+			   			<th><a href= /know.html?noun=主約與附約>主附約</a></th>
+			   			<th><a href= /know.html?noun=傷害險與健康險>險種</a></th>
+			   			<th><a href = /know.html?noun=定期壽險與終身壽險>年期</a></th>
                     </tr>
                 </thead>
-                <tbody align = "center">
+                  <tbody align = "center">
+				{% for i in range(0,(aName|length)) %}
+					<tr>
+               			<td><a href = '{{ aLink[i] }}'>{{ aName[i] }}</a></td>
+               			<td>{{ aMajor[i] }}</td>
+               			<td>{{ aType[i] }}</td>
+               			<td>{{ aYear[i] }}</td>
+            		</tr>
+            	{% endfor %}
+                </tbody>
                     <tr>
                         <td></td>
                     </tr>
