@@ -5,7 +5,7 @@
     <body class="subpage">
             <header id="header">
 					<div class="inner">
-						<a href="index.html" class="logo"><strong>Project</strong> by TEAM8</a>
+						<a href="/" class="logo"><strong>Project</strong> by TEAM8</a>
 						<nav id="nav">
 								<a href = "/" >首頁</a>
 								<a href = "know.html?noun=" >名詞解釋</a>
@@ -15,17 +15,12 @@
 						<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 					</div>
             </header>
-    <section id="three" class="wrapper">
-		<div class="inner">   
-        <div>張小姐 您好</div>
-        個人保單資訊:
-        <div>您已經有的保單如下
-             <table border = "1" width = 50% align = "center">
-                <caption></caption>
-
-                <thead>
-                    <!-- rowspans and colspans merge the specified -->
-                    <!-- number of cells vertically or horizontally -->
+    
+		<div class="inner">
+		<br><br><strong>張小姐 您好<br></strong>  
+            <table class="alt">	
+				<thead>
+				<tr><td colspan="4"><strong>已有的保單如下</strong><br></td></tr>
                     <tr>
 			   			<th>保險名稱</th>
 			   			<th><a href= /know.html?noun=主約與附約>主附約</a></th>
@@ -33,7 +28,7 @@
 			   			<th><a href = /know.html?noun=定期壽險與終身壽險>年期</a></th>
                     </tr>
                 </thead>
-                <tbody align = "center">
+            	<tbody align = "center">
 				{% for i in range(0,(nowList.name|length)) %}
 					<tr>
                			<td><a href = '{{ nowList.link[i] }}'>{{ nowList.name[i] }}</a></td>
@@ -43,26 +38,17 @@
             		</tr>
             	{% endfor %}
                 </tbody>
-		        <tfoot>
-		        </tfoot>
-            </table>
-        </div>
-        
-        <div>您過去的保單如下
-            <table border = "1" width = 50% align = "center">
-                <caption></caption>
-
-                  <thead>
-                    <!-- rowspans and colspans merge the specified -->
-                    <!-- number of cells vertically or horizontally -->
+                <thead>
+				<tr><td colspan="4"><br><strong>過去的保單如下</strong><br></td></tr>
                     <tr>
+                    
                         <th>保險名稱</th>
 			   			<th><a href= /know.html?noun=主約與附約>主附約</a></th>
 			   			<th><a href= /know.html?noun=傷害險與健康險>險種</a></th>
 			   			<th><a href = /know.html?noun=定期壽險與終身壽險>年期</a></th>
                     </tr>
                 </thead>
-                   <tbody align = "center">
+                <tbody align = "center">
 				{% for i in range(0,(pastList.name|length)) %}
 					<tr>
                			<td><a href = '{{ pastList.link[i] }}'>{{ pastList.name[i] }}</a></td>
@@ -72,19 +58,10 @@
             		</tr>
             	{% endfor %}
                 </tbody>
-		        <tfoot>
-		        </tfoot>
-            </table>
-        </div>
-        
-
-        <div>我們推薦您的保單
-            <table border = "1" width = 50% align = "center">
-                <caption></caption>
-
-               <thead>
-                    <!-- rowspans and colspans merge the specified -->
-                    <!-- number of cells vertically or horizontally -->
+           
+            
+				<thead>
+				<tr><td colspan="4"><br><strong>我們推薦您的保單</strong><br></td></tr>
                     <tr>
                         <th>保險名稱</th>
 			   			<th><a href= /know.html?noun=主約與附約>主附約</a></th>
@@ -92,7 +69,7 @@
 			   			<th><a href = /know.html?noun=定期壽險與終身壽險>年期</a></th>
                     </tr>
                 </thead>
-                  <tbody align = "center">
+               <tbody align = "center">
 				{% for i in range(0,(aName|length)) %}
 					<tr>
                			<td><a href = '{{ aLink[i] }}'>{{ aName[i] }}</a></td>
@@ -102,14 +79,7 @@
             		</tr>
             	{% endfor %}
                 </tbody>
-                    <tr>
-                        <td></td>
-                    </tr>
-                </tbody>
-		        <tfoot>
-		        </tfoot>
             </table>
         </div>
-        
     </body>
 </html>
